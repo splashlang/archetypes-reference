@@ -1,4 +1,4 @@
-# Statistics of archetype library splashform.org-SPLASH-ADL2-REF
+# Statistics of archetype library SPLASH-SPLASH-ADL2-REF
 
 ## Compilation
 
