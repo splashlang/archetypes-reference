@@ -1,6 +1,6 @@
 {
     "name": "SPLASH-ADL2-REF",
     "description": "SPLASH ADL2 reference archetype repository",
-    "maintainer": "splashform.org",
-    "maintainer_uri": "http://splashform.org"
+    "issuer": "SPLASH",
+    "issuer_uri": "http://splashform.org"
 }

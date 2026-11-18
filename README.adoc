@@ -1,8 +1,11 @@
 = SPLASH test archetype repo
 
-This repository contains the SPLASH ADL2 reference test archetypes, based on archetypes originally created for the ADL Workbench
+This repository contains the SPLASH ADL2 reference test archetypes, based on archetypes 
+originally created for the ADL Workbench
 
-It follows the SPLASH repository structure: one source directory, a shredded (multi-file) form derived from it, and a set of generated directories, each in a form intended for a particular use.
+It follows the SPLASH repository structure: one source directory, a shredded (multi-file) 
+form derived from it, and a set of generated directories, each in a form intended for a 
+particular use.
 
 The SPLASH archetype tools produce the shredded and generated directories. They
 create the shredded form when they load the repository. They write the generated directories
@@ -16,11 +19,11 @@ flowchart LR
     adl2["<b>adl2/</b><br/><i>ADL2 single files<br/>from CKM</i>"]
     shredded["<b>adl2-shredded/</b><br/><i>multi-file form,<br/>Compiler source</i>"]
 
-    gendiff["<b>adl2-gen-diff/</b><br/><i>differential ADL2 (.adls):<br/>round-trip testing</i>"]
-    jsondiff["<b>json-gen-diff/</b><br/><i>differential JSON:<br/>tool cache</i>"]
-    jsonflat["<b>json-gen-flat/</b><br/><i>flat JSON:<br/>operational use</i>"]
-    adl2opt["<b>adl2-opt/</b><br/><i>OPTs in ADL2:<br/>tool use</i>"]
-    jsonopt["<b>json-opt/</b><br/><i>OPTs in JSON:<br/>operational use</i>"]
+    gendiff["<b>gen/adl2/diff/</b><br/><i>differential ADL2 (.adls):<br/>round-trip testing</i>"]
+    jsondiff["<b>gen/json/diff/</b><br/><i>differential JSON:<br/>tool cache</i>"]
+    jsonflat["<b>gen/json/flat/</b><br/><i>flat JSON:<br/>operational use</i>"]
+    adl2opt["<b>gen/adl2/opt/</b><br/><i>OPTs in ADL2:<br/>tool use</i>"]
+    jsonopt["<b>gen/json/opt/</b><br/><i>OPTs in JSON:<br/>operational use</i>"]
     reports["<b>reports/</b><br/><i>library reports and statistics:<br/>review and QA</i>"]
 
     adl2 -- shred --> shredded
@@ -52,28 +55,28 @@ with the same major version, only the newest is shredded. This directory also co
 library definition files (`_repo_lib.json`).
 | The form the tools read archetypes from. It is easier to diff and edit than single files.
 
-| `adl2-gen-diff/`
+| `gen/adl2/diff/`
 | Each valid archetype in differential (source) form, serialised to ADL2 (`.adls`) by the tools.
 | Round-trip checks: comparing these files with `adl2/` shows what is lost or changed when
 archetypes are read and written.
 
-| `json-gen-diff/`
+| `gen/json/diff/`
 | Each valid archetype in differential form, as JSON (`.src.json`), without RM multiplicities.
 | A persistent cache for tools, which can load these files without recompiling the archetypes.
 
-| `json-gen-flat/`
+| `gen/json/flat/`
 | Each valid archetype in flat form, as JSON (`.flat.json`), without RM multiplicities. The flat
 form includes the content of the archetype's specialisation parents. The operational templates
 of any templates are also included (`.opt.json`).
 | Operational systems, which need the complete definition of each archetype.
 
-| `adl2-opt/`
+| `gen/adl2/opt/`
 | The operational template of each valid template, in ADL2 (`.opt2`).
 | Operational systems. Empty in this repository: the CKM templates are in the `.oet` format
 (under `adl2/local/templates/`), which the tools do not read.
 
-| `json-opt/`
-| The operational template of each valid template, as JSON (`.opt.json`).
+| `gen/json/opt/`
+| The operational template of each valid template, as JSON (`.opt2.json`).
 | Operational systems. Empty in this repository, as for `adl2-opt/`.
 
 | `reports/`
@@ -101,7 +104,7 @@ been removed or renamed.
 
 == Knowledge Graph rendering
 
-The /kg directory contains a KG form of the library as CSV files. These are as follows:
+The /kg directory contains a KG form of the library as CSV files. These are as follows.
 
 === Description.csv
 
